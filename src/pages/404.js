@@ -5,14 +5,17 @@ import SEO from '../components/seo';
 import { HomePageSection } from '../components/HomePageSection';
 import { graphql } from 'gatsby';
 
-const NotFoundPage = ({data: allContentfulProduct}) => (
-	<Layout>
-		<SEO title="404: Not found" />
-		<h1>Seems like this page doesn't exists</h1>
-		<h2>Since you are here check out this amazing pieces!</h2>
-		<HomePageSection products={allContentfulProduct.nodes} />
-	</Layout>
-);
+const NotFoundPage = ({ data }) => {
+	const { allContentfulProduct } = data;
+	return (
+		<Layout>
+			<SEO title="404: Not found" />
+			<h1>Seems like this page doesn't exists</h1>
+			<h2>Since you are here check out this amazing pieces!</h2>
+			<HomePageSection products={allContentfulProduct.nodes} />
+		</Layout>
+	);
+};
 
 export default NotFoundPage;
 
