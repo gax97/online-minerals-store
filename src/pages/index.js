@@ -1,9 +1,9 @@
-import React from "react"
-import { graphql } from "gatsby"
+import React from 'react';
+import { graphql } from 'gatsby';
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import { HomePageSection } from "../components/HomePageSection"
+import Layout from '../components/layout';
+import SEO from '../components/seo';
+import { HomePageSection } from '../components/HomePageSection';
 
 const IndexPage = ({ data }) => {
 	const { allContentfulProduct } = data;

@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components';
 
 export const SubmitButton = styled.button`
 	background-color: ${props => props.theme.colors.secondaryDark};
@@ -14,7 +14,7 @@ export const SubmitButton = styled.button`
 	font-weight: bold;
 	letter-spacing: 1.3px;
 	cursor: pointer;
-	&:hover{
-		opacity: .9;
+	&:hover {
+		opacity: 0.9;
 	}
-`
+`;

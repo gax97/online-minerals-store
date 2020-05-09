@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import React from 'react';
 import { Flex } from './Atoms/Flex';
 import { Link } from 'gatsby';
+import { Device } from '../lib/css';
+import { Divider } from './Atoms/Dividers';
 
 const Footer = () => {
 	return (
@@ -20,6 +22,7 @@ const Footer = () => {
 					<Footer.Link>Tik Tok</Footer.Link>
 				</Flex.Column>
 			</Flex.Row>
+			<Divider.SmallMarginDivider />
 			<Flex.Column alignItems="center">
 				<div>
 					© {new Date().getFullYear()},{` `} Mineralium Shop
@@ -32,11 +35,13 @@ const Footer = () => {
 Footer.Wrapper = styled.footer`
 	background: ${props => props.theme.colors.primaryDark};
 	color: ${props => props.theme.colors.white};
-	height: 12rem;
 	display: flex;
 	flex-direction: column;
 	padding: 2rem 12rem;
 	width: 100%;
+	${Device.mobileL} {
+		padding: 2rem 0;
+	}
 `;
 Footer.Link = styled(Link)`
 	color: white;

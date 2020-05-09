@@ -12,7 +12,7 @@ const buttonStyles = {
 	letterSpacing: '1.5px',
 };
 const stripePromise = loadStripe('pk_test_cZoFpexWyRNd6MyXYqPqrsCL00CVGgCDDr');
-const redirectToCheckout = async (event) => {
+const redirectToCheckout = async event => {
 	event.preventDefault();
 	const stripe = await stripePromise;
 	const { error } = await stripe.redirectToCheckout({

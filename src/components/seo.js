@@ -25,9 +25,9 @@ function SEO({ description, lang, title, meta }) {
 		`,
 	);
 
-
 	const pageTitle = meta?.pageTitle || site.siteMetadata.title;
-	const metaDescription = meta?.metaDescription || site.siteMetadata.description;
+	const metaDescription =
+		meta?.metaDescription || site.siteMetadata.description;
 
 	const ogTitle = meta?.ogTitle || pageTitle;
 	const ogDescription = meta?.ogDescription || metaDescription;
@@ -53,9 +53,7 @@ function SEO({ description, lang, title, meta }) {
 			{/*<link rel="icon" type="image/png" sizes="16x16" href={favicon16} />*/}
 			<meta name="msapplication-TileColor" content="#da532c" />
 			<meta name="theme-color" content="#ffffff" />
-			<title>
-				{`${pageTitle} - ${site.siteMetadata.title}`}
-			</title>
+			<title>{`${pageTitle} - ${site.siteMetadata.title}`}</title>
 			<meta name="description" content={metaDescription} />
 			<meta name="application-name" content={site.siteMetadata.title} />
 			<meta name="application-name" content={title} />
@@ -63,11 +61,17 @@ function SEO({ description, lang, title, meta }) {
 			{/* Facebook Tags */}
 			<meta property="og:site_name" content={title} />
 			<meta property="og:type" content="website'" />
-			<meta property="og:title" content={`${ogTitle} - ${site.siteMetadata.title}`} />
+			<meta
+				property="og:title"
+				content={`${ogTitle} - ${site.siteMetadata.title}`}
+			/>
 			<meta property="og:description" content={ogDescription} />
 
 			{/* Twitter tags */}
-			<meta property="twitter:title" content={`${twitterTitle} - ${site.siteMetadata.title}`} />
+			<meta
+				property="twitter:title"
+				content={`${twitterTitle} - ${site.siteMetadata.title}`}
+			/>
 			<meta property="twitter:description" content={twitterDescription} />
 		</Helmet>
 	);

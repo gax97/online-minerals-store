@@ -55,7 +55,7 @@ const SkuCard = ({ sku, stripePromise }) => {
 			<p>Price: {formatPrice(sku.price, sku.currency)}</p>
 			<button
 				style={buttonStyles}
-				onClick={(event) => redirectToCheckout(event, sku.id)}
+				onClick={event => redirectToCheckout(event, sku.id)}
 			>
 				BUY ME
 			</button>

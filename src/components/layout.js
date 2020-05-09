@@ -5,16 +5,16 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
-import PropTypes from "prop-types"
-import { graphql, useStaticQuery } from "gatsby"
+import React from 'react';
+import PropTypes from 'prop-types';
+import { graphql, useStaticQuery } from 'gatsby';
 
-import Header from "./header"
-import "./layout.css"
-import { ThemeProvider } from "styled-components"
-import { MainContentWrapper } from "./Atoms/Wrappers"
-import Footer from "./footer"
-import { GlobalStyle } from "../lib/css"
+import Header from './header';
+import './layout.css';
+import { ThemeProvider } from 'styled-components';
+import { MainContentWrapper } from './Atoms/Wrappers';
+import Footer from './footer';
+import { GlobalStyle } from '../lib/globalStyle';
 
 const theme = {
 	colors: {
