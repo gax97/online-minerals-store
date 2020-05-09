@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import React from 'react';
 import { Device } from '../../lib/css';
+import { SubmitButton } from '../Atoms/Buttons';
+import { Divider } from "../Atoms/Dividers"
 
 export const ProductCard = ({ product }) => {
 	return (
@@ -14,19 +16,29 @@ export const ProductCard = ({ product }) => {
 				</h3>
 				<h3>Weight: {product.weight}oz</h3>
 			</ProductCard.InfoWrapper>
+			<Divider.SmallMarginDivider />
+			<BuyButton>Buy</BuyButton>
 		</ProductCard.Wrapper>
 	);
 };
 ProductCard.InfoWrapper = styled.div`
 	align-self: flex-start;
 `;
+const BuyButton = styled(SubmitButton)`
+	
+`;
 ProductCard.Image = styled.img`
 	height: 180px;
 	width: 250px;
 	margin: 1rem 0;
 	cursor: pointer;
+	&:hover {
+		opacity: 0.9;
+	}
 `;
+
 ProductCard.Wrapper = styled.div`
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	flex: 1;

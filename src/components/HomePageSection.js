@@ -1,5 +1,5 @@
 import { Divider } from './Atoms/Dividers';
-import { ProductCard } from './Product';
+import { ProductCard } from './Product/ProductCard';
 import styled from 'styled-components';
 import React from 'react';
 import { Device } from '../lib/css';
