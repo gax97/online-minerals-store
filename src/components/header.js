@@ -20,7 +20,9 @@ const Header = ({ siteTitle, headerItems }) => (
 		</Header.Content>
 	</Header.Wrapper>
 );
-Header.Navigation = styled.nav``;
+Header.Navigation = styled.nav`
+	
+`;
 Header.Link = styled(Link)`
 	color: white;
 	text-decoration: none;

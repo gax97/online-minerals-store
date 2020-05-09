@@ -8,7 +8,7 @@ const Footer = () => {
 		<Footer.Wrapper>
 			<Flex.Row justifyContent="space-around">
 				<Flex.Column>
-					<Footer.Link>FAQ</Footer.Link>
+					<Footer.Link to="/faq">FAQ</Footer.Link>
 					<Footer.Link>About us</Footer.Link>
 					<Footer.Link>Blog</Footer.Link>
 					<Footer.Link>Contact us</Footer.Link>
@@ -24,7 +24,7 @@ const Footer = () => {
 				<div>
 					© {new Date().getFullYear()},{` `} Mineralium Shop
 				</div>
-				mineraliumshop@business.com
+				mineraliumshop@gmail.com
 			</Flex.Column>
 		</Footer.Wrapper>
 	);
@@ -41,6 +41,7 @@ Footer.Wrapper = styled.footer`
 Footer.Link = styled(Link)`
 	color: white;
 	text-decoration: none;
-	font-size: 16px;
+	font-size: 18px;
+	padding: 0.125rem;
 `;
 export default Footer;

@@ -14,6 +14,7 @@ import "./layout.css"
 import { ThemeProvider } from "styled-components"
 import { MainContentWrapper } from "./Atoms/Wrappers"
 import Footer from "./footer"
+import { GlobalStyle } from "../lib/css"
 
 const theme = {
 	colors: {
@@ -52,6 +53,7 @@ const Layout = ({ children }) => {
 
 	return (
 		<ThemeProvider theme={theme}>
+			<GlobalStyle />
 			<Header
 				siteTitle={site.siteMetadata.title}
 				headerItems={site.siteMetadata.header}
