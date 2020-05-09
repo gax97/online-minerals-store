@@ -2,13 +2,40 @@ import React from 'react';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
+import { HomePageSection } from '../components/HomePageSection';
+import { graphql } from 'gatsby';
 
-const NotFoundPage = () => (
+const NotFoundPage = ({data: allContentfulProduct}) => (
 	<Layout>
 		<SEO title="404: Not found" />
-		<h1>NOT FOUND</h1>
-		<p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+		<h1>Seems like this page doesn't exists</h1>
+		<h2>Since you are here check out this amazing pieces!</h2>
+		<HomePageSection products={allContentfulProduct.nodes} />
 	</Layout>
 );
 
 export default NotFoundPage;
+
+export const query = graphql`
+	{
+		allContentfulProduct(limit: 3) {
+			nodes {
+				weight
+				price
+				name
+				images {
+					file {
+						url
+					}
+					description
+					id
+					title
+				}
+				id
+				description
+				country
+				continent
+			}
+		}
+	}
+`;

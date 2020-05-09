@@ -42,6 +42,7 @@ function SEO({ description, lang, title, meta }) {
 		<Helmet>
 			<html lang="en" dir="ltr" />
 			<meta charSet="utf-8" />
+			<meta name="google-site-verification" content="9OjG91yc0sK0HYiMT877G7gE0fk19Q7qLNzSvoyhK0w" />
 			{/*<link rel="shortcut icon" href={favicon} />*/}
 			<meta
 				name="viewport"

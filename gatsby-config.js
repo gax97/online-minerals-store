@@ -3,7 +3,7 @@ require('dotenv').config({
 });
 module.exports = {
 	siteMetadata: {
-		title: `Mineralium`,
+		title: `Mineralium - Online rocks and minerals store`,
 		description: `Buy the best and the rarest minerals and the precious rocks out there. Straight from the seller. Safe payments with stripe.`,
 		author: `Danilo Gacevic`,
 		header: [
