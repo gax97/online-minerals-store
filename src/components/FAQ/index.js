@@ -55,6 +55,7 @@ FaqQuestion.Title = styled.h2`
 FaqQuestion.Wrapper = styled.div`
 	display: flex;
 	flex-direction: column;
+	margin-bottom: 2rem;
 `
 FaqQuestion.SectionWrapper = styled.div``
 FaqQuestion.Content = styled.div`
