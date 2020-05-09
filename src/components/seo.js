@@ -54,7 +54,7 @@ function SEO({ description, lang, title, meta }) {
 			{/*<link rel="icon" type="image/png" sizes="16x16" href={favicon16} />*/}
 			<meta name="msapplication-TileColor" content="#da532c" />
 			<meta name="theme-color" content="#ffffff" />
-			<title>{`${pageTitle} - ${site.siteMetadata.title}`}</title>
+			<title>{`${pageTitle} - ${site.siteMetadata.metaTitle}`}</title>
 			<meta name="description" content={metaDescription} />
 			<meta name="application-name" content={site.siteMetadata.title} />
 			<meta name="application-name" content={title} />
