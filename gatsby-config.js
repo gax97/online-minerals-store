@@ -1,13 +1,19 @@
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
-})
+require('dotenv').config({
+	path: `.env.${process.env.NODE_ENV}`,
+});
 module.exports = {
 	siteMetadata: {
-		title: `Rock E-Store`,
-		description: `Buy the best and the rarest minerals and precious rocks out there. Straight from the seller. Safe payments with stripe.`,
-		author: `RockeStore`,
+		title: `Mineralium`,
+		description: `Buy the best and the rarest minerals and the precious rocks out there. Straight from the seller. Safe payments with stripe.`,
+		author: `Danilo Gacevic`,
+		header: [
+			{ name: 'Buy', to: '/products' },
+			{ name: 'Sell', to: '/store' },
+			{ name: 'Explore', to: '/all-products' },
+		],
 	},
 	plugins: [
+		`gatsby-plugin-styled-components`,
 		`gatsby-plugin-react-helmet`,
 		{
 			resolve: `gatsby-source-filesystem`,
@@ -33,7 +39,14 @@ module.exports = {
 		{
 			resolve: `gatsby-source-stripe`,
 			options: {
-				objects: ['Balance', 'BalanceTransaction', 'Product', 'ApplicationFee', 'Sku', 'Subscription'],
+				objects: [
+					'Balance',
+					'BalanceTransaction',
+					'Product',
+					'ApplicationFee',
+					'Sku',
+					'Subscription',
+				],
 				secretKey: process.env.STRIPE_SECRET_KEY,
 				downloadFiles: false,
 			},

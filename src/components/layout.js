@@ -7,45 +7,63 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 
 import Header from "./header"
 import "./layout.css"
+import { ThemeProvider } from "styled-components"
+import { MainContentWrapper } from "./Atoms/Wrappers"
+import Footer from "./footer"
+
+const theme = {
+	colors: {
+		primary: 'rgb(92, 52, 145)',
+		primaryDark: 'darkslategray',
+		primaryLight: 'rgb(148, 103, 206)',
+		primaryVeryLight: 'rgb(232, 213, 250)',
+		primaryTransparent: 'rgba(92, 52, 145,0.2)',
+		white: '#fff',
+		black: '#1a1a1a',
+		blackTransparent: 'rgba(41, 43, 46, 0.4)',
+		red: 'rgb(218, 18, 31)',
+	},
+	pageWidth: {
+		fixed: '800px',
+	},
+	screenSize: {
+		mobileL: '600px',
+	},
+};
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+	const { site } = useStaticQuery(graphql`
+		query SiteTitleQuery {
+			site {
+				siteMetadata {
+					title
+					header {
+						name
+						to
+					}
+				}
+			}
+		}
+	`);
 
-  return (
-    <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
-    </>
-  )
-}
+	return (
+		<ThemeProvider theme={theme}>
+			<Header
+				siteTitle={site.siteMetadata.title}
+				headerItems={site.siteMetadata.header}
+			/>
+			<MainContentWrapper>{children}</MainContentWrapper>
+			<Footer />
+		</ThemeProvider>
+	);
+};
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
+	children: PropTypes.node.isRequired,
+};
 
-export default Layout
+export default Layout;

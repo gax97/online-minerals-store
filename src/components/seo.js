@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
-function SEO({ description, lang, meta, title }) {
+function SEO({ description, lang, title, meta }) {
 	const { site } = useStaticQuery(
 		graphql`
 			query {
@@ -25,50 +25,51 @@ function SEO({ description, lang, meta, title }) {
 		`,
 	);
 
-	const metaDescription = description || site.siteMetadata.description;
+
+	const pageTitle = meta?.pageTitle || site.siteMetadata.title;
+	const metaDescription = meta?.metaDescription || site.siteMetadata.description;
+
+	const ogTitle = meta?.ogTitle || pageTitle;
+	const ogDescription = meta?.ogDescription || metaDescription;
+
+	const twitterTitle = meta?.twitterTitle || ogTitle;
+	const twitterDescription = meta?.twitterDescription || ogDescription;
+
+	// const ogImage = parseContentfulImageItem(meta?.ogImage, defaultImage);
+	// const twitterImage = parseContentfulImageItem(meta?.twitterImage) || ogImage;
 
 	return (
-		<Helmet
-			htmlAttributes={{
-				lang,
-			}}
-			title={title}
-			titleTemplate={`%s | ${site.siteMetadata.title}`}
-			meta={[
-				{
-					name: `description`,
-					content: metaDescription,
-				},
-				{
-					property: `og:title`,
-					content: title,
-				},
-				{
-					property: `og:description`,
-					content: metaDescription,
-				},
-				{
-					property: `og:type`,
-					content: `website`,
-				},
-				{
-					name: `twitter:card`,
-					content: `summary`,
-				},
-				{
-					name: `twitter:creator`,
-					content: site.siteMetadata.author,
-				},
-				{
-					name: `twitter:title`,
-					content: title,
-				},
-				{
-					name: `twitter:description`,
-					content: metaDescription,
-				},
-			].concat(meta)}
-		/>
+		<Helmet>
+			<html lang="en" dir="ltr" />
+			<meta charSet="utf-8" />
+			{/*<link rel="shortcut icon" href={favicon} />*/}
+			<meta
+				name="viewport"
+				content="width=device-width, initial-scale=1, shrink-to-fit=no"
+			/>
+			<meta name="theme-color" content="#000000" />
+			{/*<link rel="apple-touch-icon" sizes="180x180" href={appleTouch} />*/}
+			{/*<link rel="icon" type="image/png" sizes="32x32" href={favicon32} />*/}
+			{/*<link rel="icon" type="image/png" sizes="16x16" href={favicon16} />*/}
+			<meta name="msapplication-TileColor" content="#da532c" />
+			<meta name="theme-color" content="#ffffff" />
+			<title>
+				{`${pageTitle} - ${site.siteMetadata.title}`}
+			</title>
+			<meta name="description" content={metaDescription} />
+			<meta name="application-name" content={site.siteMetadata.title} />
+			<meta name="application-name" content={title} />
+
+			{/* Facebook Tags */}
+			<meta property="og:site_name" content={title} />
+			<meta property="og:type" content="website'" />
+			<meta property="og:title" content={`${ogTitle} - ${site.siteMetadata.title}`} />
+			<meta property="og:description" content={ogDescription} />
+
+			{/* Twitter tags */}
+			<meta property="twitter:title" content={`${twitterTitle} - ${site.siteMetadata.title}`} />
+			<meta property="twitter:description" content={twitterDescription} />
+		</Helmet>
 	);
 }
 

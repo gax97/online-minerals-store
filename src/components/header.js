@@ -1,42 +1,59 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import { Link } from 'gatsby';
+import PropTypes from 'prop-types';
+import React from 'react';
+import styled from 'styled-components';
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
+const StyledLogo = styled(Link)`
+	color: white;
+	text-decoration: none;
+	font-size: 32px;
+`;
+const Header = ({ siteTitle, headerItems }) => (
+	<Header.Wrapper>
+		<Header.Content>
+			<StyledLogo to="/">{siteTitle}</StyledLogo>
+			<Header.Navigation>
+				{headerItems.map((item) => {
+					return <Header.Link to={item.to} activeClassName="active">{item.name}</Header.Link>;
+				})}
+			</Header.Navigation>
+		</Header.Content>
+	</Header.Wrapper>
+);
+Header.Navigation = styled.nav``;
+Header.Link = styled(Link)`
+	color: white;
+	text-decoration: none;
+	font-size: 20px;
+	padding-right: 0.65rem;
+	&.active{
+		font-weight: bold;
+		font-size: 24px
+	}
+`;
+Header.Wrapper = styled.header`
+	background-color: darkslategray;
+	position: fixed;
+	z-index: 101;
+	top: 0;
+	right:0;
+	left:0;
+	height: 4.75rem;
+`;
+Header.Content = styled.div`
+	display: flex;
+	justify-content: space-between;
+	padding: 1.45rem 6rem;
+	height: 100%;
+	align-items: center;
+`;
 
 Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
+	siteTitle: PropTypes.string,
+};
 
 Header.defaultProps = {
-  siteTitle: ``,
-}
+	siteTitle: ``,
+};
 
-export default Header
+export default Header;
