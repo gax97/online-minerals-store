@@ -5,7 +5,7 @@
  */
 
 // You can delete this file if you're not using it
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { SubmitButton } from './src/components/Atoms/Buttons';
 import { Divider } from './src/components/Atoms/Dividers';
@@ -62,11 +62,10 @@ const CartProviderManage = ({ children }) => {
 	useEffect(() => {
 		if (window.location.pathname === '/checkout') {
 			setCartVisible(false);
-		} else {
 		}
-	}, [window.location]);
+	}, []);
 	return (
-		<CartContext.Provider value={{ items, setItems }}>
+		<CartContext.Provider value={{ items, setItems, setCartVisible }}>
 			{children}
 			{cartVisible && items.length > 0 && (
 				<>
