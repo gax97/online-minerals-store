@@ -5,13 +5,13 @@
  */
 
 // You can delete this file if you're not using it
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { SubmitButton } from './src/components/Atoms/Buttons';
 import { Divider } from './src/components/Atoms/Dividers';
 import createPersistedState from 'use-persisted-state';
-import { Flex } from "./src/components/Atoms/Flex"
-import { navigate } from "gatsby";
+import { Flex } from './src/components/Atoms/Flex';
+import { navigate } from 'gatsby';
 
 export const CartContext = React.createContext({});
 export const ModalContainer = styled.div`
@@ -26,7 +26,6 @@ export const ModalContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	
 `;
 const PurchaseButton = styled.button`
 	color: white;
@@ -49,12 +48,23 @@ const PurchaseButton = styled.button`
 const CancelButton = styled(PurchaseButton)`
 	color: rgb(255, 178, 56);
 	background-color: whitesmoke;
-	border: 1px solid rgb(255, 178, 56);;
-`
-const useCartItems = createPersistedState('cartItems')
+	border: 1px solid rgb(255, 178, 56);
+`;
+const useCartItems = createPersistedState('cartItems');
 const CartProviderManage = ({ children }) => {
 	const [items, setItems] = useCartItems([]);
 	const [cartVisible, setCartVisible] = useState(true);
+	useEffect(() => {
+		if (items.length) {
+			setCartVisible(true);
+		}
+	}, [items]);
+	useEffect(() => {
+		if (window.location.pathname === '/checkout') {
+			setCartVisible(false);
+		} else {
+		}
+	}, [window.location]);
 	return (
 		<CartContext.Provider value={{ items, setItems }}>
 			{children}
@@ -64,14 +74,11 @@ const CartProviderManage = ({ children }) => {
 						<span>Items in cart: {items.length}</span>
 						<Divider.SmallMarginDivider />
 						<Flex.Row>
-							<CancelButton onClick={()=> setItems([])}>
-								Clear
-							</CancelButton>
+							<CancelButton onClick={() => setItems([])}>Clear</CancelButton>
 							<PurchaseButton onClick={() => navigate('/checkout')}>
 								Purchase
 							</PurchaseButton>
 						</Flex.Row>
-
 					</ModalContainer>
 				</>
 			)}

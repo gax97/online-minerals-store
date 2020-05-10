@@ -11,7 +11,7 @@ const NotFoundPage = ({ data }) => {
 		<Layout>
 			<SEO title="404: Not found" />
 			<h1>Seems like this page doesn't exists</h1>
-			<h2>Since you are here check out this amazing pieces!</h2>
+			<h2>Since you are here check out these amazing pieces!</h2>
 			<HomePageSection products={allContentfulProduct.nodes} />
 		</Layout>
 	);
