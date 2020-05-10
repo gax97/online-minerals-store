@@ -1,30 +1,33 @@
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useContext, useEffect, useRef, useState } from "react"
 import styled from 'styled-components';
 import { Device } from '../lib/css';
+import { CartContext } from "../../gatsby-browser"
 
 const StyledLogo = styled(Link)`
 	color: white;
 	text-decoration: none;
 	font-size: 32px;
 `;
-const Header = ({ siteTitle, headerItems }) => (
-	<Header.Wrapper>
-		<Header.Content>
-			<StyledLogo to="/">{siteTitle}</StyledLogo>
-			<Header.Navigation>
-				{headerItems.map(item => {
-					return (
-						<Header.Link to={item.to} activeClassName="active">
-							{item.name}
-						</Header.Link>
-					);
-				})}
-			</Header.Navigation>
-		</Header.Content>
-	</Header.Wrapper>
-);
+const Header = ({ siteTitle, headerItems }) => {
+	return(
+		<Header.Wrapper>
+			<Header.Content>
+				<StyledLogo to="/">{siteTitle}</StyledLogo>
+				<Header.Navigation>
+					{headerItems.map(item => {
+						return (
+							<Header.Link to={item.to} activeClassName="active">
+								{item.name}
+							</Header.Link>
+						);
+					})}
+				</Header.Navigation>
+			</Header.Content>
+		</Header.Wrapper>
+	);
+}
 Header.Navigation = styled.nav``;
 Header.Link = styled(Link)`
 	color: white;

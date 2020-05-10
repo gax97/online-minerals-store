@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { CartContext } from '../../../gatsby-browser';
 
 const cardStyles = {
 	display: 'flex',
@@ -35,6 +36,7 @@ const formatPrice = (amount, currency) => {
 };
 
 const SkuCard = ({ sku, stripePromise }) => {
+	const cartContenxt = useContext(CartContext);
 	const redirectToCheckout = async (event, sku, quantity = 1) => {
 		event.preventDefault();
 		const stripe = await stripePromise;
@@ -48,11 +50,16 @@ const SkuCard = ({ sku, stripePromise }) => {
 			console.warn('Error:', error);
 		}
 	};
-
+	const handleAddToCart = () => {
+		cartContenxt.setItems(prevState => [...prevState, sku]);
+	};
 	return (
 		<div style={cardStyles}>
 			<h4>{sku.attributes.name}</h4>
 			<p>Price: {formatPrice(sku.price, sku.currency)}</p>
+			<button style={buttonStyles} onClick={handleAddToCart}>
+				Add to cart
+			</button>
 			<button
 				style={buttonStyles}
 				onClick={event => redirectToCheckout(event, sku.id)}

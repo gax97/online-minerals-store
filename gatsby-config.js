@@ -11,7 +11,7 @@ module.exports = {
 			{ name: 'Sell', to: '/store' },
 			{ name: 'Explore', to: '/all-products' },
 		],
-		metaTitle: 'Mineralium - Online rocks and minerals store'
+		metaTitle: 'Online rocks and minerals store'
 	},
 	plugins: [
 		`gatsby-plugin-styled-components`,
