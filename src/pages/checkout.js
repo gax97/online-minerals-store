@@ -13,15 +13,11 @@ const CheckoutPage = props => {
 			<SEO title="Mineralium Store Checkout" />
 			<h1>Welcome to your checkout page</h1>
 			<h2>These are your products</h2>
-			{typeof window === 'undefined' ? (
-				<span>Loading</span>
-			) : (
-				<>
-					{items.map(item => {
-						return <div>{item.id}</div>;
-					})}
-				</>
-			)}
+			<React.Suspense fallback={<span>Loading</span>}>
+				{items.map(item => {
+					return <div>{item.id}</div>;
+				})}
+			</React.Suspense>
 		</Layout>
 	);
 };
