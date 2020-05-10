@@ -12,7 +12,6 @@ import { Divider } from './src/components/Atoms/Dividers';
 import createPersistedState from 'use-persisted-state';
 import { Flex } from "./src/components/Atoms/Flex"
 import { navigate } from "gatsby";
-import { Bold } from "./src/components/FAQ"
 
 export const CartContext = React.createContext({});
 export const ModalContainer = styled.div`
@@ -62,7 +61,7 @@ const CartProviderManage = ({ children }) => {
 			{cartVisible && items.length > 0 && (
 				<>
 					<ModalContainer>
-						<span>Items in cart: <Bold>{items.length}</Bold></span>
+						<span>Items in cart: {items.length}</span>
 						<Divider.SmallMarginDivider />
 						<Flex.Row>
 							<CancelButton onClick={()=> setItems([])}>

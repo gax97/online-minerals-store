@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import React from 'react';
 import { BLOCKS, INLINES, MARKS } from '@contentful/rich-text-types';
 
-export const Bold = styled.span`
+const Bold = styled.span`
 	font-weight: bold;
 `;
 const P = styled.p``;
