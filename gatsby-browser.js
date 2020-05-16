@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react"
-import styled from "styled-components"
-import { Divider } from "./src/components/Atoms/Dividers"
-import createPersistedState from "use-persisted-state"
-import { Flex } from "./src/components/Atoms/Flex"
-import { navigate } from "gatsby"
-import { UserProvider } from "./src/Context/user/UserProvider"
-import { ChatProvider } from "./src/Context/chatbot/ChatProvider"
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import { Divider } from './src/components/Atoms/Dividers';
+import createPersistedState from 'use-persisted-state';
+import { Flex } from './src/components/Atoms/Flex';
+import { navigate } from 'gatsby';
+import { UserProvider } from './src/Context/user/UserProvider';
+import { ChatProvider } from './src/Context/chatbot/ChatProvider';
 
 export const CartContext = React.createContext({});
 export const ModalContainer = styled.div`

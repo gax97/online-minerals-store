@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 import { Launcher } from "react-chat-window"
 
@@ -14,8 +14,20 @@ const URL =
 	"https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/b59d666c-0da7-4dea-8a85-f146a7ebbc64?staging=true&timezoneOffset=-360&subscription-key=9f5a7fbc5eb946d689b752910b2112c2&q="
 const ChatContext = React.createContext({})
 export const ChatProvider = ({ children }) => {
+	if(typeof window === 'undefined'){
+		return;
+	}
 	const [messages, setMessages] = useState([])
-	const [visible, setVisible] = useState(true)
+	const [visible, setVisible] = useState(false)
+	useEffect(()=>{
+		let i = setTimeout(()=>{
+			setVisible(true)
+		}, 6000)
+
+		return () => {
+			clearTimeout(i)
+		}
+	}, [])
 	const handleMessage = message => {
 		fetch(URL + message.data.text)
 		.then(json => json.json())
@@ -52,7 +64,7 @@ export const ChatProvider = ({ children }) => {
 		setMessages(prevState => [...prevState, message])
 	}
 	return (
-		<ChatContext.Provider value="">
+		<ChatContext.Provider value={{}}>
 			{visible && (
 				<div style={{ zIndex: 22, position: "fixed" }}>
 					<Launcher
