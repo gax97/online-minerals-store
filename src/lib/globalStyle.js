@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import { Device } from "./css"
 
 export const GlobalStyle = createGlobalStyle`
 	
@@ -114,4 +115,14 @@ html, body {
 		justify-content: space-between;
 		align-items: center;
 	}
+	.sc-chat-window {
+	${Device.mobileL} {
+		width: 86%;
+	    height: 79%;
+	    max-height: 100%;
+	    right: 30px;
+	    bottom: 20px;
+	    border-radius: 0px;
+	}
+    }
 `;

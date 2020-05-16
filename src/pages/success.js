@@ -2,9 +2,8 @@ import React, { useContext, useEffect } from 'react';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import { HomePageSection } from '../components/HomePageSection';
-import { graphql } from 'gatsby';
 import { CartContext } from '../../gatsby-browser';
+import { MainHeader } from "../components/Atoms/Headers"
 
 const Success = ({ data }) => {
 	const { setItems } = useContext(CartContext);
@@ -16,7 +15,7 @@ const Success = ({ data }) => {
 	return (
 		<Layout>
 			<SEO title="Successful purchase" />
-			<h1 style={{ fontSize: '30px' }}>Success</h1>
+			<MainHeader left>Success</MainHeader>
 		</Layout>
 	);
 };

@@ -44,7 +44,6 @@ HomePageSection.Wrapper = styled.section`
 	background-color: ${props => props.theme.colors.white};
 	display: flex;
 	flex-direction: column;
-	box-shadow: 0px -2px 20px -1px rgba(204, 204, 204, 0.5);
 	h1 {
 		${Device.mobileL} {
 			text-align: left;

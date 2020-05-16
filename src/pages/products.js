@@ -35,6 +35,7 @@ const AdvancedExamplePage = ({ data }) => {
 							key={node.id}
 							id={node.id}
 							handleAddToCart={handleAddToCart}
+							imgSrc={node.image}
 						/>
 					);
 				})}
@@ -56,6 +57,7 @@ export const query = graphql`
 					attributes {
 						name
 					}
+					image
 				}
 			}
 		}

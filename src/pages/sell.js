@@ -1,17 +1,16 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import { CartContext, UserContext } from '../../gatsby-browser';
 import { MainHeader, SectionHeader } from '../components/Atoms/Headers';
-
-import FacebookLogin from 'react-facebook-login';
 import { Flex } from '../components/Atoms/Flex';
 import { Divider } from '../components/Atoms/Dividers';
 import { StyledInput } from '../components/Atoms/Input';
 import styled from 'styled-components';
 import { Device } from '../lib/css';
 import { SubmitButton } from '../components/Atoms/Buttons';
+import { UserContext } from "../Context/user/UserProvider"
+
 const StyledForm = styled.form`
 	display: flex;
 	justify-content: center;

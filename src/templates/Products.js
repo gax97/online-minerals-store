@@ -1,8 +1,7 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import { HomePageSection } from '../components/HomePageSection';
 import { graphql } from 'gatsby';
 import { CartContext } from '../../gatsby-browser';
 import { ProductCard } from '../components/Product/ProductCard';
@@ -37,6 +36,7 @@ const Products = ({ data, pageContext }) => {
 							key={node.id}
 							id={node.id}
 							handleAddToCart={handleAddToCart}
+							imgSrc={node.image}
 						/>
 					);
 				})}

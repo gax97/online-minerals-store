@@ -1,9 +1,7 @@
 import React, { useContext } from 'react';
-import { graphql } from 'gatsby';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import { HomePageSection } from '../components/HomePageSection';
 import { CartContext } from '../../gatsby-browser';
 import { loadStripe } from '@stripe/stripe-js';
 import { SubmitButton } from '../components/Atoms/Buttons';

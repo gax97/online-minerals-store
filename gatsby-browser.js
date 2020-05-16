@@ -1,18 +1,11 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/browser-apis/
- */
-
-// You can delete this file if you're not using it
-import React, { useContext, useEffect, useState } from 'react';
-import styled from 'styled-components';
-import { SubmitButton } from './src/components/Atoms/Buttons';
-import { Divider } from './src/components/Atoms/Dividers';
-import createPersistedState from 'use-persisted-state';
-import { Flex } from './src/components/Atoms/Flex';
-import { navigate } from 'gatsby';
-import FacebookLogin from 'react-facebook-login';
+import React, { useEffect, useState } from "react"
+import styled from "styled-components"
+import { Divider } from "./src/components/Atoms/Dividers"
+import createPersistedState from "use-persisted-state"
+import { Flex } from "./src/components/Atoms/Flex"
+import { navigate } from "gatsby"
+import { UserProvider } from "./src/Context/user/UserProvider"
+import { ChatProvider } from "./src/Context/chatbot/ChatProvider"
 
 export const CartContext = React.createContext({});
 export const ModalContainer = styled.div`
@@ -85,37 +78,12 @@ const CartProviderManage = ({ children }) => {
 		</CartContext.Provider>
 	);
 };
-export const UserContext = React.createContext({});
-const UserProvider = ({ children }) => {
-	const [user, setUser] = useState(null);
-	const responseFacebook = response => {
-		const data = {};
-		data.email = response.email;
-		data.name = response.name;
-		data.img = response.picture.data.url;
-		setUser(data);
-	};
-	console.log(user)
-	const fbButton = (
-		<FacebookLogin
-			appId="529285797763908"
-			autoLoad={true}
-			fields="name,email,picture"
-			callback={responseFacebook}
-			cssClass="my-facebook-button-class"
-			icon="fa-facebook"
-		/>
-	);
-	return (
-		<UserContext.Provider value={{ user, fbButton }}>
-			{children}
-		</UserContext.Provider>
-	);
-};
 export const wrapRootElement = ({ element }) => {
 	return (
-		<UserProvider>
-			<CartProviderManage>{element}</CartProviderManage>
-		</UserProvider>
+		<ChatProvider>
+			<UserProvider>
+				<CartProviderManage>{element}</CartProviderManage>
+			</UserProvider>
+		</ChatProvider>
 	);
 };
