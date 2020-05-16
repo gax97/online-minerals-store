@@ -2,13 +2,20 @@ import styled from 'styled-components';
 import React from 'react';
 import { Device } from '../../lib/css';
 import { SubmitButton } from '../Atoms/Buttons';
-import { Divider } from "../Atoms/Dividers"
+import { Divider } from '../Atoms/Dividers';
 
-export const ProductCard = ({ product }) => {
+/**
+ *
+ * @param product { {name: string, images: [], price: number, continent: string, country: string, weight: number} }
+ * @returns {*}
+ * @constructor
+ */
+export const ProductCard = ({ imgSrc = "https:", ...props }) => {
+	const product = props.product ?? props;
 	return (
 		<ProductCard.Wrapper>
 			<h2>{product.name}</h2>
-			<ProductCard.Image src={'https:' + product.images[0].file.url} />
+			<ProductCard.Image src={imgSrc} />
 			<ProductCard.InfoWrapper>
 				<h3>Price: {product.price}$</h3>
 				<h3>
@@ -17,7 +24,19 @@ export const ProductCard = ({ product }) => {
 				<h3>Weight: {product.weight}oz</h3>
 			</ProductCard.InfoWrapper>
 			<Divider.SmallMarginDivider />
-			<BuyButton>Buy</BuyButton>
+			<BuyButton
+				onClick={() =>
+					props.handleAddToCart({
+						attributes: { name: product.name },
+						price: product.notFormatedPrice,
+						currency: product.currency,
+						id: product.id,
+					})
+				}
+			>
+				Add to cart
+			</BuyButton>
+			<Divider.SmallMarginDivider />
 		</ProductCard.Wrapper>
 	);
 };
@@ -25,7 +44,7 @@ ProductCard.InfoWrapper = styled.div`
 	align-self: flex-start;
 `;
 const BuyButton = styled(SubmitButton)`
-	
+	max-width: 9rem;
 `;
 ProductCard.Image = styled.img`
 	height: 180px;

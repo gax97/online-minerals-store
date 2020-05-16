@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { GrayUnderline } from '../FAQ';
 import { Divider } from '../Atoms/Dividers';
 import { sum } from 'lodash';
-const formatPrice = (amount, currency) => {
+const formatPrice = (amount, currency = 'usd') => {
 	let price = (amount / 100).toFixed(2);
 	let numberFormat = new Intl.NumberFormat(['en-US'], {
 		style: 'currency',

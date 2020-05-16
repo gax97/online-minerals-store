@@ -12,6 +12,7 @@ import { Divider } from './src/components/Atoms/Dividers';
 import createPersistedState from 'use-persisted-state';
 import { Flex } from './src/components/Atoms/Flex';
 import { navigate } from 'gatsby';
+import FacebookLogin from 'react-facebook-login';
 
 export const CartContext = React.createContext({});
 export const ModalContainer = styled.div`
@@ -84,7 +85,37 @@ const CartProviderManage = ({ children }) => {
 		</CartContext.Provider>
 	);
 };
-
+export const UserContext = React.createContext({});
+const UserProvider = ({ children }) => {
+	const [user, setUser] = useState(null);
+	const responseFacebook = response => {
+		const data = {};
+		data.email = response.email;
+		data.name = response.name;
+		data.img = response.picture.data.url;
+		setUser(data);
+	};
+	console.log(user)
+	const fbButton = (
+		<FacebookLogin
+			appId="529285797763908"
+			autoLoad={true}
+			fields="name,email,picture"
+			callback={responseFacebook}
+			cssClass="my-facebook-button-class"
+			icon="fa-facebook"
+		/>
+	);
+	return (
+		<UserContext.Provider value={{ user, fbButton }}>
+			{children}
+		</UserContext.Provider>
+	);
+};
 export const wrapRootElement = ({ element }) => {
-	return <CartProviderManage>{element}</CartProviderManage>;
+	return (
+		<UserProvider>
+			<CartProviderManage>{element}</CartProviderManage>
+		</UserProvider>
+	);
 };

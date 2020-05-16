@@ -11,9 +11,9 @@ const Footer = () => {
 			<Flex.Row justifyContent="space-around">
 				<Flex.Column>
 					<Footer.Link to="/faq">FAQ</Footer.Link>
-					<Footer.Link>About us</Footer.Link>
-					<Footer.Link>Blog</Footer.Link>
+					<Footer.Link to="/explore">Explore</Footer.Link>
 					<Footer.Link>Contact us</Footer.Link>
+					<Footer.Link to="/checkout">Cart</Footer.Link>
 				</Flex.Column>
 				<Flex.Column>
 					<Footer.Link as="span">Social media:</Footer.Link>

@@ -8,8 +8,8 @@ module.exports = {
 		author: `Danilo Gacevic`,
 		header: [
 			{ name: 'Buy', to: '/products' },
-			{ name: 'Sell', to: '/store' },
-			{ name: 'Explore', to: '/all-products' },
+			{ name: 'Sell', to: '/sell' },
+			{ name: 'Explore', to: '/explore' },
 		],
 		metaTitle: 'Online rocks and minerals store'
 	},

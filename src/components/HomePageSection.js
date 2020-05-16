@@ -1,17 +1,30 @@
 import { Divider } from './Atoms/Dividers';
 import { ProductCard } from './Product/ProductCard';
 import styled from 'styled-components';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Device } from '../lib/css';
+import { MainHeader } from './Atoms/Headers';
+import { CartContext } from '../../gatsby-browser';
 
 export const HomePageSection = ({ title, products }) => {
+	const { setItems } = useContext(CartContext);
+	const handleAddToCart = sku => {
+		setItems(prevState => [...prevState, sku]);
+	};
 	return (
 		<HomePageSection.Wrapper>
-			<h1>{title}</h1>
-			<Divider.MarginDivider />
+			<MainHeader>{title}</MainHeader>
+			<Divider.SmallMarginDivider />
 			<HomePageSection.ItemsWrapper>
 				{products.map(product => {
-					return <ProductCard product={product} />;
+					return (
+						<ProductCard
+							{...product}
+							handleAddToCart={handleAddToCart}
+							notFormatedPrice={product.price * 100}
+							imgSrc={'https:' + product.images[0].file.url}
+						/>
+					);
 				})}
 			</HomePageSection.ItemsWrapper>
 		</HomePageSection.Wrapper>
@@ -20,6 +33,7 @@ export const HomePageSection = ({ title, products }) => {
 HomePageSection.ItemsWrapper = styled.div`
 	display: flex;
 	justify-content: center;
+	flex-wrap: wrap;
 	${Device.mobileL} {
 		flex-direction: column;
 	}
@@ -32,10 +46,6 @@ HomePageSection.Wrapper = styled.section`
 	flex-direction: column;
 	box-shadow: 0px -2px 20px -1px rgba(204, 204, 204, 0.5);
 	h1 {
-		margin-top: 0.125rem;
-		font-size: 22px;
-		text-align: center;
-		font-weight: 500;
 		${Device.mobileL} {
 			text-align: left;
 		}

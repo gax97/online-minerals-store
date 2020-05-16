@@ -27,7 +27,9 @@
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "react-facebook-login": "^4.1.1",
     "react-helmet": "^6.0.0",
+    "slugify": "^1.4.0",
     "styled-components": "^5.1.0",
     "use-persisted-state": "^0.3.0"
   },
@@ -45,6 +47,7 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "https": "npm run dev -- --https"
   }
 }

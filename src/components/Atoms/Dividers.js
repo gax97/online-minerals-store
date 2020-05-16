@@ -18,7 +18,9 @@ Divider.SmallMarginDivider = styled(Divider.Line)`
 Divider.MarginDivider = styled(Divider.Line)`
 	height: 20px;
 `;
-
+Divider.MediumMarginDivider = styled(Divider.Line)`
+	height: 30px;
+`;
 Divider.BigMarginDivider = styled(Divider.Line)`
 	height: 40px;
 `;
