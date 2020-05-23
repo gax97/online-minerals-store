@@ -11,7 +11,7 @@ module.exports = {
 			{ name: 'Sell', to: '/sell' },
 			{ name: 'Explore', to: '/explore' },
 		],
-		metaTitle: 'Online rocks and minerals store'
+		metaTitle: 'Online rocks and minerals store',
 	},
 	plugins: [
 		`gatsby-plugin-styled-components`,
@@ -71,7 +71,7 @@ module.exports = {
 			resolve: `gatsby-plugin-google-analytics`,
 			options: {
 				// The property ID; the tracking code won't be generated without it
-				trackingId: "UA-166884696-1",
+				trackingId: 'UA-166884696-1',
 				// Defines where to place the tracking script - `true` in the head and `false` in the body
 				head: true,
 				// // Setting this parameter is optional

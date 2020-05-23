@@ -36,25 +36,19 @@ const IndexPage = ({ data }) => {
 				<Flex.Column css="justify-content: center; margin-right: 50px;">
 					<SectionHeader css="color: gold">{first.title}</SectionHeader>
 					<Divider.SmallMarginDivider />
-					<p style={{ textAlign: 'justify' }}>
-						{first.content}
-					</p>
+					<p style={{ textAlign: 'justify' }}>{first.content}</p>
 					<Divider.BigMarginDivider />
 				</Flex.Column>
 				<Flex.Column css="justify-content: center; margin-right: 50px;">
 					<SectionHeader css="color: #ff6f00">{second.title}</SectionHeader>
 					<Divider.SmallMarginDivider />
-					<p style={{ textAlign: 'justify' }}>
-						{second.content}
-					</p>
+					<p style={{ textAlign: 'justify' }}>{second.content}</p>
 					<Divider.BigMarginDivider />
 				</Flex.Column>
 				<Flex.Column css="justify-content: center; margin-right: 50px;">
 					<SectionHeader css="color: #59a00c">{third.title}</SectionHeader>
 					<Divider.SmallMarginDivider />
-					<p style={{ textAlign: 'justify' }}>
-						{third.content}
-					</p>
+					<p style={{ textAlign: 'justify' }}>{third.content}</p>
 					<Divider.BigMarginDivider />
 				</Flex.Column>
 			</Flex.Row>

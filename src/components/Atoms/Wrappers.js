@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import { Device } from "../../lib/css"
+import styled from 'styled-components';
+import { Device } from '../../lib/css';
 
 export const MainContentWrapper = styled.main`
 	padding: 0 7rem;
@@ -14,4 +14,4 @@ export const FlexWrap = styled.div`
 	flex-wrap: wrap;
 	justify-items: center;
 	width: 100%;
-`
+`;

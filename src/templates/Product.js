@@ -1,18 +1,16 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import { CartContext } from '../../gatsby-browser';
 import { Flex } from '../components/Atoms/Flex';
 import styled from 'styled-components';
-import { ProductCard } from '../components/Product/ProductCard';
 import { SectionHeader } from '../components/Atoms/Headers';
-import { Divider, Underline } from '../components/Atoms/Dividers';
+import { Divider } from '../components/Atoms/Dividers';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
 	faCheck,
 	faClock,
-	faCoffee,
 	faDollarSign,
 	faShoppingCart,
 } from '@fortawesome/free-solid-svg-icons';

@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import { Device } from "./css"
+import { Device } from './css';
 
 export const GlobalStyle = createGlobalStyle`
 	

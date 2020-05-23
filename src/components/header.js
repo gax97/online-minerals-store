@@ -1,6 +1,6 @@
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
-import React, { useContext, useEffect, useRef, useState } from "react"
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { Device } from '../lib/css';
 
@@ -10,10 +10,12 @@ const StyledLogo = styled(Link)`
 	font-size: 34px;
 `;
 const Header = ({ siteTitle, headerItems }) => {
-	return(
+	return (
 		<Header.Wrapper>
 			<Header.Content>
-				<StyledLogo to="/" activeClassName="active">{siteTitle}</StyledLogo>
+				<StyledLogo to="/" activeClassName="active">
+					{siteTitle}
+				</StyledLogo>
 				<Header.Navigation>
 					{headerItems.map(item => {
 						return (
@@ -26,7 +28,7 @@ const Header = ({ siteTitle, headerItems }) => {
 			</Header.Content>
 		</Header.Wrapper>
 	);
-}
+};
 Header.Navigation = styled.nav``;
 Header.Link = styled(Link)`
 	color: white;

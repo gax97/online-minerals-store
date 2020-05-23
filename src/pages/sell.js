@@ -9,7 +9,7 @@ import { StyledInput } from '../components/Atoms/Input';
 import styled from 'styled-components';
 import { Device } from '../lib/css';
 import { SubmitButton } from '../components/Atoms/Buttons';
-import { UserContext } from "../Context/user/UserProvider"
+import { UserContext } from '../Context/user/UserProvider';
 
 export const StyledForm = styled.form`
 	display: flex;

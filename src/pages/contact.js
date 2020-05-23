@@ -4,11 +4,11 @@ import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import { HomePageSection } from '../components/HomePageSection';
-import { MainHeader, SectionHeader } from "../components/Atoms/Headers"
-import { Divider } from "../components/Atoms/Dividers"
-import { StyledInput } from "../components/Atoms/Input"
-import { SellSubmitButton, StyledForm } from "./sell"
-import { Flex } from "../components/Atoms/Flex"
+import { MainHeader, SectionHeader } from '../components/Atoms/Headers';
+import { Divider } from '../components/Atoms/Dividers';
+import { StyledInput } from '../components/Atoms/Input';
+import { SellSubmitButton, StyledForm } from './sell';
+import { Flex } from '../components/Atoms/Flex';
 
 const IndexPage = ({ data }) => {
 	// const { allContentfulProduct } = data;
@@ -17,7 +17,9 @@ const IndexPage = ({ data }) => {
 			<SEO title="Contact" />
 			<Flex.Row columnOnMobile>
 				<Flex.Column>
-					<MainHeader left>If you want to help us improve the platform</MainHeader>
+					<MainHeader left>
+						If you want to help us improve the platform
+					</MainHeader>
 					<Divider.MediumMarginDivider />
 					<SectionHeader left>Or you have any question</SectionHeader>
 					<Divider.SmallMarginDivider />
@@ -38,7 +40,7 @@ const IndexPage = ({ data }) => {
 						<Divider.SmallMarginDivider />
 						<StyledInput placeholder="Country" />
 						<Divider.SmallMarginDivider />
-						<StyledInput placeholder="Your message" as="textarea"/>
+						<StyledInput placeholder="Your message" as="textarea" />
 						<Divider.MarginDivider />
 						<SellSubmitButton onClick={() => alert('successfully submitted')}>
 							Send
@@ -47,8 +49,6 @@ const IndexPage = ({ data }) => {
 					</StyledForm>
 				</Flex.Column>
 			</Flex.Row>
-
-
 		</Layout>
 	);
 };

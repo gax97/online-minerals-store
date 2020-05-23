@@ -7,7 +7,7 @@ import { loadStripe } from '@stripe/stripe-js';
 import { SubmitButton } from '../components/Atoms/Buttons';
 import { CartItems } from '../components/Cart/CartItems';
 import { Divider } from '../components/Atoms/Dividers';
-import { SectionHeader } from "../components/Atoms/Headers"
+import { SectionHeader } from '../components/Atoms/Headers';
 const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PUBLISHABLE_KEY);
 
 const CheckoutPage = props => {
