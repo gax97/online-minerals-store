@@ -17,6 +17,7 @@ const IndexPage = ({ data }) => {
 			<HomePageSection
 				title={'Top pieces today'}
 				products={allContentfulProduct.nodes}
+				noButton
 			/>
 			<Flex.Row justifyContent="center">
 				<Flex.Column>

@@ -3,41 +3,51 @@ import React from 'react';
 import { Device } from '../../lib/css';
 import { SubmitButton } from '../Atoms/Buttons';
 import { Divider } from '../Atoms/Dividers';
-import { Bold } from "../FAQ"
-
+import { Bold } from '../FAQ';
+import slugify from 'slugify';
+import { navigate } from '@reach/router';
 /**
  *
  * @param product { {name: string, images: [], price: number, continent: string, country: string, weight: number} }
  * @returns {*}
  * @constructor
  */
-export const ProductCard = ({ imgSrc = "https:", ...props }) => {
+export const ProductCard = ({ imgSrc = 'https:', noButton, ...props }) => {
 	const product = props.product ?? props;
-
+	const slug = slugify(product.name, {
+		lower: true,
+	});
 	return (
-		<ProductCard.Wrapper>
+		<ProductCard.Wrapper onClick={() => navigate('/product/' + slug)}>
 			<h2>{product.name}</h2>
-			<ProductCard.Image src={imgSrc} alt={product.name}/>
+			<ProductCard.Image src={imgSrc} alt={product.name} />
 			<ProductCard.InfoWrapper>
-				<h3>Price: <Bold>{product.price}$</Bold></h3>
+				<h3>
+					Price: <Bold>{product.price}$</Bold>
+				</h3>
 				<h3>
 					From: <Bold>{product.continent}</Bold>, <Bold>{product.country}</Bold>
 				</h3>
-				<h3>Weight: <Bold>{product.weight}oz</Bold></h3>
+				<h3>
+					Weight: <Bold>{product.weight}oz</Bold>
+				</h3>
 			</ProductCard.InfoWrapper>
 			<Divider.SmallMarginDivider />
-			<BuyButton
-				onClick={() =>
-					props.handleAddToCart({
-						attributes: { name: product.name },
-						price: product.notFormatedPrice,
-						currency: product.currency,
-						id: product.id,
-					})
-				}
-			>
-				Add to cart
-			</BuyButton>
+			{!noButton && (
+				<BuyButton
+					onClick={e => {
+						e.stopPropagation();
+						props.handleAddToCart({
+							attributes: { name: product.name },
+							price: product.notFormatedPrice,
+							currency: product.currency,
+							id: product.id,
+						});
+					}}
+				>
+					Add to cart
+				</BuyButton>
+			)}
 			<Divider.SmallMarginDivider />
 		</ProductCard.Wrapper>
 	);
@@ -47,7 +57,7 @@ ProductCard.InfoWrapper = styled.div`
 `;
 const BuyButton = styled(SubmitButton)`
 	max-width: 9rem;
-	&:hover{
+	&:hover {
 		color: #f6b203;
 	}
 `;
@@ -70,7 +80,7 @@ ProductCard.Wrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 	flex: 1;
-	
+	cursor: pointer;
 	h2 {
 		font-weight: 600;
 		color: #223939;

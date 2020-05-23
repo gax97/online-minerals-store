@@ -6,7 +6,7 @@ import { Device } from '../lib/css';
 import { MainHeader } from './Atoms/Headers';
 import { CartContext } from '../../gatsby-browser';
 
-export const HomePageSection = ({ title, products }) => {
+export const HomePageSection = ({ title, products, noButton }) => {
 	const { setItems } = useContext(CartContext);
 	const handleAddToCart = sku => {
 		setItems(prevState => [...prevState, sku]);
@@ -23,6 +23,7 @@ export const HomePageSection = ({ title, products }) => {
 							handleAddToCart={handleAddToCart}
 							notFormatedPrice={product.price * 100}
 							imgSrc={'https:' + product.images[0].file.url}
+							noButton={noButton}
 						/>
 					);
 				})}

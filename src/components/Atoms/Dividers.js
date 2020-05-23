@@ -24,3 +24,7 @@ Divider.MediumMarginDivider = styled(Divider.Line)`
 Divider.BigMarginDivider = styled(Divider.Line)`
 	height: 40px;
 `;
+export const Underline = styled(Divider.SmallMarginDivider)`
+	border-bottom: 1px solid gray;
+`
+

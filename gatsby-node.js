@@ -24,6 +24,10 @@ exports.createPages = async ({ graphql, actions }) => {
 						created
 						image
 						id
+						price
+						product {
+							name
+						}
 					}
 				}
 			}

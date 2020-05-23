@@ -7,6 +7,7 @@ import { loadStripe } from '@stripe/stripe-js';
 import { SubmitButton } from '../components/Atoms/Buttons';
 import { CartItems } from '../components/Cart/CartItems';
 import { Divider } from '../components/Atoms/Dividers';
+import { SectionHeader } from "../components/Atoms/Headers"
 const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PUBLISHABLE_KEY);
 
 const CheckoutPage = props => {
@@ -29,7 +30,7 @@ const CheckoutPage = props => {
 	return (
 		<Layout>
 			<SEO title="Mineralium Store Checkout" />
-			<h1>Products in your cart:</h1>
+			<SectionHeader left>Products in your cart:</SectionHeader>
 			<Divider.BigMarginDivider />
 			{typeof window === 'undefined' ? (
 				<span>Loading</span>

@@ -6,6 +6,10 @@ import { Flex } from './src/components/Atoms/Flex';
 import { navigate } from 'gatsby';
 import { UserProvider } from './src/Context/user/UserProvider';
 import { ChatProvider } from './src/Context/chatbot/ChatProvider';
+import { Bold } from "./src/components/FAQ"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faDollarSign, faShoppingCart } from "@fortawesome/free-solid-svg-icons"
+import { SubmitButton } from "./src/components/Atoms/Buttons"
 
 export const CartContext = React.createContext({});
 export const ModalContainer = styled.div`
@@ -64,12 +68,16 @@ const CartProviderManage = ({ children }) => {
 			{cartVisible && items.length > 0 && (
 				<>
 					<ModalContainer>
-						<span>Items in cart: {items.length}</span>
-						<Divider.SmallMarginDivider />
+						<Flex.Row justifyContent="space-between" alignItems="center">
+							<span>Items in cart: <Bold>{items.length}</Bold></span>
+							<FontAwesomeIcon icon={faShoppingCart} color="gold" />
+						</Flex.Row>
+						<Divider.MediumMarginDivider />
 						<Flex.Row>
 							<CancelButton onClick={() => setItems([])}>Clear</CancelButton>
-							<PurchaseButton onClick={() => navigate('/checkout')}>
+							<PurchaseButton onClick={() => navigate('/checkout')} css="max-width: 10rem">
 								Purchase
+								<FontAwesomeIcon icon={faDollarSign} color="white" />
 							</PurchaseButton>
 						</Flex.Row>
 					</ModalContainer>
