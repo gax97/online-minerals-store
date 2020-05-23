@@ -28,17 +28,11 @@ const Image = styled.img`
 		opacity: 0.9;
 	}
 	border-radius: 50px;
-	background: white;
-	box-shadow: 20px 20px 60px whitesmoke, -20px -20px 60px whitesmoke;
+	background: #ffffff;
+	box-shadow: -20px -20px 60px #d9d9d9, 20px 20px 60px #ffffff;
 `;
 const Product = ({ pageContext: { data } }) => {
 	const { setItems } = useContext(CartContext);
-	// useEffect(() => {
-	// 	if (setItems) {
-	// 		setItems([]);
-	// 	}
-	// }, []);
-	console.log(data);
 	let price = (data.price / 100).toFixed(2);
 
 	let numberFormat = new Intl.NumberFormat(['en-US'], {
