@@ -100,7 +100,7 @@ module.exports = {
 				// Include GTM in development.
 				//
 				// Defaults to false meaning GTM will only be loaded in production.
-				includeInDevelopment: false,
+				includeInDevelopment: true,
 
 				// datalayer to be set before GTM is loaded
 				// should be an object or a function that is executed in the browser
@@ -118,6 +118,13 @@ module.exports = {
 				//
 				// Defaults to gatsby-route-change
 				// routeChangeEventName: "YOUR_ROUTE_CHANGE_EVENT_NAME",
+			},
+		},
+		{
+			resolve: `gatsby-plugin-hotjar`,
+			options: {
+				id: 1825058,
+				sv: 6
 			},
 		},
 		// this (optional) plugin enables Progressive Web App + Offline functionality
