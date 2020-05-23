@@ -14,9 +14,6 @@ const URL =
 	"https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/b59d666c-0da7-4dea-8a85-f146a7ebbc64?staging=true&timezoneOffset=-360&subscription-key=9f5a7fbc5eb946d689b752910b2112c2&q="
 const ChatContext = React.createContext({})
 export const ChatProvider = ({ children }) => {
-	if(typeof window === 'undefined'){
-		return;
-	}
 	const [messages, setMessages] = useState([])
 	const [visible, setVisible] = useState(false)
 	useEffect(()=>{

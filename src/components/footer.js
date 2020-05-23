@@ -12,7 +12,7 @@ const Footer = () => {
 				<Flex.Column>
 					<Footer.Link to="/faq">FAQ</Footer.Link>
 					<Footer.Link to="/explore">Explore</Footer.Link>
-					<Footer.Link>Contact us</Footer.Link>
+					<Footer.Link to="/contact">Contact us</Footer.Link>
 					<Footer.Link to="/checkout">Cart</Footer.Link>
 				</Flex.Column>
 				<Flex.Column>
@@ -27,7 +27,7 @@ const Footer = () => {
 				<div>
 					© {new Date().getFullYear()},{` `} Mineralium Shop
 				</div>
-				mineraliumshop@gmail.com
+				<p>mineraliumshop@gmail.com</p>
 			</Flex.Column>
 		</Footer.Wrapper>
 	);

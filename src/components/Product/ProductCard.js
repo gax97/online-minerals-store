@@ -3,6 +3,7 @@ import React from 'react';
 import { Device } from '../../lib/css';
 import { SubmitButton } from '../Atoms/Buttons';
 import { Divider } from '../Atoms/Dividers';
+import { Bold } from "../FAQ"
 
 /**
  *
@@ -12,17 +13,17 @@ import { Divider } from '../Atoms/Dividers';
  */
 export const ProductCard = ({ imgSrc = "https:", ...props }) => {
 	const product = props.product ?? props;
-	console.log(imgSrc)
+
 	return (
 		<ProductCard.Wrapper>
 			<h2>{product.name}</h2>
 			<ProductCard.Image src={imgSrc} alt={product.name}/>
 			<ProductCard.InfoWrapper>
-				<h3>Price: {product.price}$</h3>
+				<h3>Price: <Bold>{product.price}$</Bold></h3>
 				<h3>
-					From: {product.continent}, {product.country}
+					From: <Bold>{product.continent}</Bold>, <Bold>{product.country}</Bold>
 				</h3>
-				<h3>Weight: {product.weight}oz</h3>
+				<h3>Weight: <Bold>{product.weight}oz</Bold></h3>
 			</ProductCard.InfoWrapper>
 			<Divider.SmallMarginDivider />
 			<BuyButton
@@ -46,6 +47,9 @@ ProductCard.InfoWrapper = styled.div`
 `;
 const BuyButton = styled(SubmitButton)`
 	max-width: 9rem;
+	&:hover{
+		color: #f6b203;
+	}
 `;
 ProductCard.Image = styled.img`
 	height: 180px;

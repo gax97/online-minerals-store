@@ -11,7 +11,7 @@ import { Device } from '../lib/css';
 import { SubmitButton } from '../components/Atoms/Buttons';
 import { UserContext } from "../Context/user/UserProvider"
 
-const StyledForm = styled.form`
+export const StyledForm = styled.form`
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -27,7 +27,7 @@ const StyledForm = styled.form`
 		}
 	}
 `;
-const SellSubmitButton = styled(SubmitButton)`
+export const SellSubmitButton = styled(SubmitButton)`
 	min-width: 20rem;
 	white-space: nowrap;
 `;
