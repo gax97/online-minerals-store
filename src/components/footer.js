@@ -17,9 +17,8 @@ const Footer = () => {
 				</Flex.Column>
 				<Flex.Column>
 					<Footer.Link as="span">Social media:</Footer.Link>
-					<Footer.Link>Instagram</Footer.Link>
-					<Footer.Link>Facebook</Footer.Link>
-					<Footer.Link>Tik Tok</Footer.Link>
+					<Footer.Link as="a" href="https://www.instagram.com/filips.minerals/?hl=en">Instagram</Footer.Link>
+					<Footer.Link as="a" href="https://www.facebook.com/Prodavnica-dragog-kamenja-Mineralium-114926990248625/">Facebook</Footer.Link>
 				</Flex.Column>
 			</Flex.Row>
 			<Divider.SmallMarginDivider />
