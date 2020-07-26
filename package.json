@@ -2,7 +2,7 @@
   "name": "Mineralium-Shop",
   "private": true,
   "description": "Online store for rocks and minerals",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "author": "Danilo Gacevic",
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^13.4.0",

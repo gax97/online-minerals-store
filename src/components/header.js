@@ -1,72 +1,72 @@
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Device } from '../lib/css';
 
 const StyledLogo = styled(Link)`
-	color: white;
-	text-decoration: none;
-	font-size: 34px;
+  color: white;
+  text-decoration: none;
+  font-size: 34px;
 `;
 const Header = ({ siteTitle, headerItems }) => {
-	return (
-		<Header.Wrapper>
-			<Header.Content>
-				<StyledLogo to="/" activeClassName="active">
-					{siteTitle}
-				</StyledLogo>
-				<Header.Navigation>
-					{headerItems.map(item => {
-						return (
-							<Header.Link to={item.to} activeClassName="active">
-								{item.name}
-							</Header.Link>
-						);
-					})}
-				</Header.Navigation>
-			</Header.Content>
-		</Header.Wrapper>
-	);
+  return (
+    <Header.Wrapper>
+      <Header.Content>
+        <StyledLogo to="/" activeClassName="active">
+          {siteTitle}
+        </StyledLogo>
+        <Header.Navigation>
+          {headerItems.map(item => {
+            return (
+              <Header.Link to={item.to} activeClassName="active">
+                {item.name}
+              </Header.Link>
+            );
+          })}
+        </Header.Navigation>
+      </Header.Content>
+    </Header.Wrapper>
+  );
 };
 Header.Navigation = styled.nav``;
 Header.Link = styled(Link)`
-	color: white;
-	text-decoration: none;
-	font-size: 20px;
-	padding-right: 0.65rem;
-	&.active {
-		font-weight: bold;
-		font-size: 24px;
-		color: #fcd57b;
-	}
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  padding-right: 0.65rem;
+  &.active {
+    font-weight: bold;
+    font-size: 24px;
+    color: #fcd57b;
+  }
 `;
 Header.Wrapper = styled.header`
-	background-color: darkslategray;
-	position: fixed;
-	z-index: 101;
-	top: 0;
-	right: 0;
-	left: 0;
-	height: 4.75rem;
+  background-color: darkslategray;
+  position: fixed;
+  z-index: 101;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 4.75rem;
 `;
 Header.Content = styled.div`
-	display: flex;
-	justify-content: space-between;
-	padding: 1.45rem 6rem;
-	height: 100%;
-	align-items: center;
-	${Device.mobileL} {
-		padding: 1.45rem 0.5rem;
-	}
+  display: flex;
+  justify-content: space-between;
+  padding: 1.45rem 6rem;
+  height: 100%;
+  align-items: center;
+  ${Device.mobileL} {
+    padding: 1.45rem 0.5rem;
+  }
 `;
 
 Header.propTypes = {
-	siteTitle: PropTypes.string,
+  siteTitle: PropTypes.string,
 };
 
 Header.defaultProps = {
-	siteTitle: ``,
+  siteTitle: ``,
 };
 
 export default Header;
