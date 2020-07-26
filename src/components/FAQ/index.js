@@ -14,7 +14,7 @@ const StyledHyperLink = styled.span`
 	cursor: pointer;
 `;
 // render the styling
-const RTFBold = ({ children }) => <Bold>{children}</Bold>;
+const RTFBold = ({ children }) => <span className="bold">{children}</span>;
 const Text = ({ children }) => <P>{children}</P>;
 const HyperLink = ({ children }) => (
 	<StyledHyperLink>{children}</StyledHyperLink>
