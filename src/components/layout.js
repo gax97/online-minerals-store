@@ -11,6 +11,7 @@ import { GlobalStyle } from '../lib/globalStyle';
 
 const theme = {
   colors: {
+    primaryDark: 'darkslategray',
     primaryVeryLight: 'rgb(232, 213, 250)',
     secondaryDark: 'rgb(70,152,152)',
     white: '#fff',
